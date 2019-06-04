@@ -15,6 +15,7 @@ package com.pandu.sample
  *     is OneType -> //
  *     is AnotherType -> //
  * }.exhaustive
+ *
  * ```
  */
 
