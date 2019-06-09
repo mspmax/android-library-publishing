@@ -1,5 +1,5 @@
 # Android Library Publishing
-This is created to showcase publishing a library on Jcenter bintray
+This is created to showcase publishing an Android library in Jcenter bintray
 
 License
 -------
