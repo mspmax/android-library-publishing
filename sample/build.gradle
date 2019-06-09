@@ -1,8 +1,36 @@
 apply plugin: 'com.android.library'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+
+// adding bintray and Maven plugins
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext{
+    // bintray information
+    // eg https://bintray.com/mspmax/sample/com.pandu
+    bintrayRepo = "sample"
+    bintrayName = "com.pandu"
+
+    libraryName = "sample" //  Android library module name
+
+    // This section specify the group ID, artifact ID, and version number respectively
+    // eg: implementation 'group:artifact:version'
+    publishedGroupId = 'com.pandu'
+    artifact = 'sample'
+    libraryVersion = '1.0.0'
+
+    // Library information
+    libraryDescription = 'Sample library to test bintray publishing'
+    siteUrl = 'https://github.com/mspmax/SampleLibraryPublishing'
+    gitUrl = 'https://github.com/mspmax/SampleLibraryPublishing.git'
+    developerId ='mspmax'
+    developerName = 'panduka de silva'
+    developerEmail = 'test@gmail.com'
+    licenseName = 'The Apache Software License, version 2.0'
+    licenseUrl = 'https://www.apache.org/licenses/LICENSE-2.0'
+    allLicenses = 'Apache-2.0'
+}
 
 android {
     compileSdkVersion 28
@@ -36,4 +64,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.0.2'
+}
+
+// Custom gradle tasks to upload the library to bintray
+// NOTE : This can be added to your CI plan
+if(project.rootProject.file('local.properties').exists()){
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 }
