@@ -84,7 +84,7 @@ Congratulations, your library is now online and is ready for anyone to use it ! 
    ```
 This is not really recommended as it'll be bit messy for anyone who uses your library. So one step left, goto your bintray package web interface and clock on add to Jcenter. Thats it !
 
-**NOTE** : Only open source(public) repos are free to piublish in Jcenter, for private repos you have to get a paid account from bintray. However, for private repos you can still use it via your bintray maven repo.
+**NOTE** : Only open source(public) repos are free to publish in Jcenter, for private repos you have to get a paid account from bintray. However, for private repos you can still use it via your bintray maven repo.
 
 License
 -------
