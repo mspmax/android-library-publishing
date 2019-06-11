@@ -70,7 +70,7 @@ This is created to showcase publishing an Android library(Kotlin/Java) in Jcente
    }
    ```
    This is just a temp fix and will be resolved soon
-9.  After successful build you can run `./gradlew bintrayUpload` if successful you will see the library version available in bintray. you're welcome ! :tada: :punch: :muscle: if not, please let me know !
+9.  After successful build you can run `./gradlew bintrayUpload` if successful you will see the library version available in bintray. you're welcome ! :tada: :punch: :muscle:   if not, please let me know !
 
 
 License
