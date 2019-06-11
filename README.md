@@ -63,13 +63,19 @@ This is created to showcase publishing an Android library(Kotlin/Java) in Jcente
     bintray.apikey = bintray_API_key 
     ```
     API key can be taken from navigating [here](https://bintray.com/profile/edit/organizations)
-8. After completing all the above steps, try running `./gradlew build` on your android studio terminal. If successful please proceed to step 9. Else, if you come across this error ` Task :sample:javadoc FAILED` then add the following code block to your project `build.gradle` file
+8. After completing all the above steps, try running `./gradlew build` on your android studio terminal. If successful please proceed to step 9. Else, if you come across this error ` Task :sample:javadoc FAILED` then add the following code block to your project `build.gradle` file.
    ``` groovy
    subprojects {
        tasks.withType(Javadoc).all { enabled = false }
    }
    ```
-   This is just a temp fix and will be resolved soon
+   This happens when you have kotlin files in the library and the above code block will skpi `javadoc` gradle task. If you have Java and kotlin both in the library and wanna just avoid only the kotlin files from javadoc creation then add the following code block,
+   ``` groovy
+    task javadoc(type: Javadoc) {
+      excludes = ['**/*.kt'] // < ---- Exclude all kotlin files from javadoc file
+    }
+   ```
+   
 9.  After successful build you can run `./gradlew bintrayUpload` if successful you will see the library version available in bintray. you're welcome ! :tada: :punch: :muscle:   if not, please let me know !
 
 ## More steps - adding to Jcenter
