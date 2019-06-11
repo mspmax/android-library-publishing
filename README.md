@@ -73,7 +73,7 @@ This is created to showcase publishing an Android library(Kotlin/Java) in Jcente
 9.  After successful build you can run `./gradlew bintrayUpload` if successful you will see the library version available in bintray. you're welcome ! :tada: :punch: :muscle:   if not, please let me know !
 
 ## More steps - adding to Jcenter
-Congratulations, your library is now online and is ready for anyone to use it ! However, we are not done....just yet. The library is still on your own Maven Repository not on jcenter yet. So, if anyone want to use your library, they have to define the repository's url first like below in thereproject `build.gradle` file,
+Congratulations, your library is now online and is ready for anyone to use it ! However, we are not done....just yet. The library is still on your own Maven Repository not on jcenter yet. So, if anyone want to use your library, they have to define the repository's url first like below in there project `build.gradle` file(which is bit annoying TBH),
 
    ``` groovy
    repositories {
@@ -84,7 +84,7 @@ Congratulations, your library is now online and is ready for anyone to use it ! 
    ```
 This is not really recommended as it'll be bit messy for anyone who uses your library. So one step left, goto your bintray package web interface and clock on add to Jcenter. Thats it !
 
-**NOTE** : Only open source(public) repos are free to piublish in Jcenter, for private repos you have to get a paid account from bintray
+**NOTE** : Only open source(public) repos are free to piublish in Jcenter, for private repos you have to get a paid account from bintray. However, for private repos you can still use it via your bintray maven repo.
 
 License
 -------
