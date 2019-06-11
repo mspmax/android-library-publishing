@@ -24,9 +24,9 @@ This is created to showcase publishing an Android library(Kotlin/Java) in Jcente
     ```
 5. Add the following extension block in your library module `build.gradle` file
     ``` groovy
-    ext {
+   ext{
     // Bintray information - following data is based on https://bintray.com/mspmax/sample/com.pandu
-   
+
     bintrayRepo = "sample"          // repo name
     bintrayName = "com.pandu"       // package name
 
@@ -36,7 +36,7 @@ This is created to showcase publishing an Android library(Kotlin/Java) in Jcente
     // eg: implementation 'group:artifact:version'
     publishedGroupId = 'com.pandu'
     artifact = 'sample'
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.0'        // version created in bintray package
 
     // Library information
     libraryDescription = 'Sample library to test bintray publishing'
@@ -48,7 +48,7 @@ This is created to showcase publishing an Android library(Kotlin/Java) in Jcente
     licenseName = 'The Apache Software License, version 2.0'
     licenseUrl = 'https://www.apache.org/licenses/LICENSE-2.0'
     allLicenses = 'Apache-2.0'
-    }
+   }
     ```
 6. Add these custom gradle tasks which helps in uploading library binraies to bintray,
     ``` groovy
@@ -57,12 +57,21 @@ This is created to showcase publishing an Android library(Kotlin/Java) in Jcente
         apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
     }
     ```
-5. Add the following info to your local.properties file
+7. Add the following info to your local.properties file
     ```
     bintray.user = bintray_user
     bintray.apikey = bintray_API_key 
     ```
     API key can be taken from navigating [here](https://bintray.com/profile/edit/organizations)
+8. After all the above steps, try running `./gradlew build` on your android studio terminal. If successful please proceed to step 9. Else, if you come across this error ` Task :sample:javadoc FAILED` then add the following code block to your project `build.gradle` file
+   ``` groovy
+   subprojects {
+       tasks.withType(Javadoc).all { enabled = false }
+   }
+   ```
+This is just a temp fix and will be resolved soon
+9.  After successful build you can run `./gradlew bintrayUpload`
+
 
 License
 -------
