@@ -26,7 +26,7 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-// NOTE this is to temp fix to avoid javadoc build issue which will be handled soon...
+// Avoid JavaDocs creation for kotlin
 subprojects {
     tasks.withType(Javadoc).all { enabled = false }
 }
