@@ -1,14 +1,12 @@
 plugins {
     id "org.sonarqube" version "2.7"
+    id "com.android.library"
+    id "kotlin-android"
+    id "kotlin-android-extensions"
+    // adding bintray and Maven plugins
+    id "com.jfrog.bintray"
+    id "com.github.dcendents.android-maven"
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-
-// adding bintray and Maven plugins
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'com.github.dcendents.android-maven'
 
 ext{
     // Bintray information - following data is based on https://bintray.com/mspmax/sample/com.pandu
